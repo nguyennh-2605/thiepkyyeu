@@ -189,12 +189,24 @@
         });
         
         noBtn.addEventListener("mouseenter", () => {
-          const top = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
-          const left = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
+            const boxChooseRect = boxchoose.getBoundingClientRect();
 
-          noBtn.style.top = `${top}px`;
-          noBtn.style.left = `${left}px`;
-      });
+            let top, left;
+
+            do {
+                top = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
+                left = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
+            } while (
+                top >= boxChooseRect.top &&
+                top <= boxChooseRect.bottom &&
+                left >= boxChooseRect.left &&
+                left <= boxChooseRect.right
+            );
+
+            noBtn.style.top = `${top}px`;
+            noBtn.style.left = `${left}px`;
+        });
+
     </script>
 </body>
 </html>
