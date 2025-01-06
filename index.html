@@ -189,12 +189,12 @@
         });
         
         noBtn.addEventListener("mouseenter", () => {
-            const top = Math.floor(Math.random() * window.innerHeight);
-            const left = Math.floor(Math.random() * window.innerWidth);
+          const top = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
+          const left = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
 
-            noBtn.style.top = `${top}px`;
-            noBtn.style.left = `${left}px`;
-        });
+          noBtn.style.top = `${top}px`;
+          noBtn.style.left = `${left}px`;
+      });
     </script>
 </body>
 </html>
