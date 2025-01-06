@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #c0f7cb;
+            font-family: "Montserrat", sans-serif;
+            height: 100vh;
+            position: relative;
+        }
+        img {
+            width: 100%;
+            display: block;
+        }
+        .boxheart {
+          width: 300px;
+          height: 200px;
+          background: rgb(122, 102, 255);
+          position: fixed;
+          top: calc(50% - 100px);
+          left: calc(50% - 150px);
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: opacity 0.5s ease, transform 0.5s ease; /* Thêm transition cho opacity và transform */
+          opacity: 1; /* Hiển thị ban đầu */
+      }
+
+      .boxheart.hidden {
+          opacity: 0; /* Làm mờ dần */
+          transform: scale(0.8); /* Thu nhỏ ô vuông */
+      }
+
+      .boxchoose {
+          width: 50%;
+          margin: 50px auto;
+          text-align: center;
+          opacity: 0; /* Ẩn ban đầu */
+          pointer-events: none;
+          transition: opacity 0.5s ease; /* Thêm hiệu ứng chuyển đổi */
+      }
+
+      .boxchoose.active {
+          opacity: 1; /* Hiện đoạn text */
+          pointer-events: auto;
+      }
+        .boxchoose h2 {
+            color: rgb(102, 117, 255);
+            font-size: 30px;
+            filter: drop-shadow(0 0 100px rgb(255, 0, 0));
+            text-shadow: 1px 3px 8px #ffcdcd;
+            margin-bottom: 50px;
+        }
+        .boxchoose button {
+            background-color: #ffffff6b;
+            border: none;
+            font-family: inherit;
+            padding: 5px 10px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        #no {
+            position: absolute;
+            color: red;
+            background-color: white;
+            transform: translateX(-50px);
+            z-index: 999;
+        }
+        #yes {
+            background-color: rgb(167, 255, 207);
+            font-size: 30px;
+            padding: 12px 23px;
+            color: #00bb28;
+            font-weight: bold;
+            margin-left: 40px;
+            animation: shakeBtn 0.5s infinite alternate;
+        }
+        @keyframes shakeBtn {
+            from {
+                transform: rotate(-15deg);
+                box-shadow: 0 0 50px rgba(255, 0, 0, 0.575);
+            }
+            to {
+                transform: rotate(15deg);
+            }
+        }
+        .popup {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #d1b3f8;
+            top: -48px;
+            left: 0;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: 1s;
+        }
+        .popup.active {
+            opacity: 1;
+            pointer-events: visible;
+        }
+        .popup .inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            text-align: center;
+            background-color: #91e2b5;
+            width: 70%;
+            padding: 50px;
+            border-radius: 30px;
+            z-index: 999;
+            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+            transition: 1s;
+        }
+        .popup.active .inner {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .popup img {
+            width: 50%;
+            margin: 0 auto;
+            border-radius: 30px;
+        }
+        .popup h3 {
+            font-size: 28px;
+            color: #5d4aed;
+            margin-bottom: 20px;
+            text-shadow: 5px 4px 23px #fff;
+            font-weight: bold;
+        }
+        .popup p {
+            font-size: 17px;
+            margin-top: 15px;
+            color: #fff;
+            text-shadow: 1px 1px 1px #808080;
+            font-weight: bold;
+        }
+        .popup p span {
+            color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="boxheart">
+        <h1>Bấm đi mmb</h1>
+    </div>
+    <div class="boxchoose">
+        <h2>ĐI KỈ YẾU T KHÔNG</h2>
+        <div class="listbutton">
+            <button id="no">del</button>
+            <button id="yes">có hih</button>
+        </div>
+    </div>
+    <div class="popup">
+        <div class="inner">
+            <h3>Yehhhhh</h3>
+            <img src="e:\Downloads\Ổ (C)\mocha2.gif" alt="" />
+            <p>Nho la <span>CHU NHAT</span>, dung quen nha thg lol</p>
+        </div>
+    </div>
+    <script>
+        const noBtn = document.querySelector("#no");
+        const yesBtn = document.querySelector("#yes");
+        let boxheart = document.querySelector(".boxheart");
+        let boxchoose = document.querySelector(".boxchoose");
+        let popup = document.querySelector(".popup");
+        
+        boxheart.addEventListener("click", function () {
+            boxheart.classList.add("hidden");
+            boxchoose.classList.add("active");
+        });
+        
+        yesBtn.addEventListener("click", function () {
+            popup.classList.add("active");
+        });
+        
+        noBtn.addEventListener("mouseenter", () => {
+            const top = Math.floor(Math.random() * window.innerHeight);
+            const left = Math.floor(Math.random() * window.innerWidth);
+
+            noBtn.style.top = `${top}px`;
+            noBtn.style.left = `${left}px`;
+        });
+    </script>
+</body>
+</html>
