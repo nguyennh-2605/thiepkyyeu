@@ -149,7 +149,7 @@
             font-weight: bold;
         }
         .popup p span {
-            color: yellow;
+            color: rgb(255, 0, 153);
             font-weight: bold;
         }
     </style>
@@ -159,17 +159,17 @@
         <h1>Bấm đi mmb</h1>
     </div>
     <div class="boxchoose">
-        <h2>ĐI KỈ YẾU T KHÔNG</h2>
+        <h2>Ban co bi gay ko?</h2>
         <div class="listbutton">
-            <button id="no">del</button>
-            <button id="yes">có hih</button>
+            <button id="no">ko</button>
+            <button id="yes">co</button>
         </div>
     </div>
     <div class="popup">
         <div class="inner">
-            <h3>Yehhhhh</h3>
+            <h3>adak</h3>
             <img src="e:\Downloads\Ổ (C)\mocha2.gif" alt="" />
-            <p>Nho la <span>CHU NHAT</span>, dung quen nha thg lol</p>
+            <p>Bat ngay duoc 1 thg <span>gay</span></p>
         </div>
     </div>
     <script>
@@ -189,24 +189,14 @@
         });
         
         noBtn.addEventListener("mouseenter", () => {
-            const boxChooseRect = boxchoose.getBoundingClientRect();
+          const top = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
+          const left = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
 
-            let top, left;
+          const boxChooseRect = boxchoose.getBoundingClientRect();
 
-            do {
-                top = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
-                left = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
-            } while (
-                top >= boxChooseRect.top &&
-                top <= boxChooseRect.bottom &&
-                left >= boxChooseRect.left &&
-                left <= boxChooseRect.right
-            );
-
-            noBtn.style.top = `${top}px`;
-            noBtn.style.left = `${left}px`;
-        });
-
+          noBtn.style.top = `${top}px`;
+          noBtn.style.left = `${left}px`;
+      });
     </script>
 </body>
 </html>
