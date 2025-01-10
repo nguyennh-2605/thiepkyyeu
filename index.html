@@ -63,6 +63,22 @@
             text-shadow: 1px 3px 8px #ffcdcd;
             margin-bottom: 50px;
         }
+        .text-with-image{
+          display: inline-flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+        }
+        .text-with-image h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .text-with-image img {
+            width: 50px;
+            height: auto;
+            border-radius: 0;
+            /* margin-left: 5px; */
+        }
         .boxchoose button {
             background-color: #ffffff6b;
             border: none;
@@ -76,6 +92,7 @@
             color: red;
             background-color: white;
             transform: translateX(-50px);
+            margin-top: 40px;
             z-index: 999;
         }
         #yes {
@@ -85,6 +102,7 @@
             color: #00bb28;
             font-weight: bold;
             margin-left: 40px;
+            margin-top: 40px;
             animation: shakeBtn 0.5s infinite alternate;
         }
         @keyframes shakeBtn {
@@ -156,10 +174,13 @@
 </head>
 <body>
     <div class="boxheart">
-        <h1>Bấm đi mmb</h1>
+        <h1>Biết bấm vào đây ko</h1>
     </div>
     <div class="boxchoose">
-        <h2>Ban co bi gay ko?</h2>
+        <div class = "text-with-image">
+          <h2>Đi Kỉ Yếu T Nhé XD</h2>
+          <img src="https://media.tenor.com/Eog9WTKDMAkAAAAM/cat-and-flower.gif" alt=""/>
+        </div>
         <div class="listbutton">
             <button id="no">ko</button>
             <button id="yes">co</button>
@@ -167,9 +188,9 @@
     </div>
     <div class="popup">
         <div class="inner">
-            <h3>adak</h3>
-            <img src="e:\Downloads\Ổ (C)\mocha2.gif" alt="" />
-            <p>Bat ngay duoc 1 thg <span>gay</span></p>
+            <h3>Ngoan qus, cung biet an cos ne</h3>
+            <img src="https://i.pinimg.com/originals/88/14/9b/88149b0400750578f4d07d9bc3fb0fee.gif" alt="" />
+            <p>Nhớ là <span>CHỦ NHẬT</span> đấy cmmb</p>
         </div>
     </div>
     <script>
